@@ -8,14 +8,14 @@
 #include <cmath>
 
 
-int area_calculation(double radius, double height) {
+double area_calculation(double radius, double height) {
     // This function calculates the area of a cylinder
 
     double volume;
 
     volume = M_PI * pow(radius, 2.0) * height;
 
-    std::cout << "The volume is " << volume << "m3" << std::endl;
+    return volume;
 }
 
 int main() {
@@ -23,6 +23,7 @@ int main() {
 
     std::string radiusString, heightString;
     int radiusInt, heightInt;
+    double volume;
 
     std::cout << "" << std::endl;
     std::cout << "This program calculates the volume of a cylinder."
@@ -40,7 +41,8 @@ int main() {
         heightInt = std::stoi(heightString);
 
         if (radiusInt >= 0 && heightInt >= 0) {
-            area_calculation(radiusInt, heightInt);
+            volume = area_calculation(radiusInt, heightInt);
+            std::cout << "The volume is " << volume << "m3" << std::endl;
         } else {
             std::cout << "Please have 2 positive integers" << std::endl;
         }
